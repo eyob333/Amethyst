@@ -17,6 +17,8 @@
     "lil-gui": "^0.20.0",
     "split-type": "^0.3.4",
     "stats-js": "^1.0.1",
-    "three": "^0.178.0"
+    "three": "^0.178.0",
+    "three-custom-shader-material": "^6.3.7",
+    "vite-plugin-glsl": "^1.5.1"
   }
 }
