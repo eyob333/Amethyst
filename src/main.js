@@ -1,3 +1,5 @@
 import App from "./Experiance/App"
-let canvas = document.querySelector('canvas.webgl')
-let app = new App(canvas)
+import './Experiance/Styles/Home.css'
+
+
+let app = new App(document.querySelector('canvas.webgl'))

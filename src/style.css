@@ -1,4 +1,10 @@
+@font-face {
+  font-family: 'zelan'; /* Choose a name for your font */
+  src: url('/fonts/zelan.ttf') format('truetype');
+  /* Add other formats if needed */
+}
 body{
   margin: 0;
   border: 0;
 }
+
