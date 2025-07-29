@@ -7,10 +7,12 @@ export default class Environmet{
     constructor(){
         this.app = new App()
         this.scene = this.app.scene
+        this.resources = this.app.resources
         this.debug = this.app.debug
 
         this.setSunLight()
         this.setAmbientLight()
+        this.setEnvMap()
 
         if( this.debug.active){
             this.debugFolder = this.debug.ui.addFolder('Enviromet')
@@ -34,9 +36,15 @@ export default class Environmet{
     }
 
     setAmbientLight(){
-        this.ambient = new THREE.AmbientLight('#ffffff', 1.44)
+        this.ambient = new THREE.AmbientLight('#ffffff', 0.525)
         this.scene.add(this.ambient)
     }
     
+    setEnvMap(){
+        this.environmentMap = this.resources.item.enviroment
+        this.environmentMap.mapping = THREE.EquirectangularReflectionMapping
+        this.scene.background = this.environmentMap
+        this.scene.environment = this.environmentMap
+    }
 
 }

@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import App from "../App"
 import Environmet from './Environment'
+import Crystal from './Cryistal'
 
 export default class World{
 
@@ -9,19 +10,18 @@ export default class World{
         this.scene = this.app.scene
         this.resorces = this.app.resources
 
-        //test mesh 
-        const testMesh = new THREE.Mesh( 
-            new THREE.BoxGeometry(),
-            new THREE.MeshStandardMaterial({color: '#ffffff',})
-        )
-        testMesh.castShadow  = true
+        // //test mesh 
+        // const testMesh = new THREE.Mesh( 
+        //     new THREE.BoxGeometry(),
+        //     new THREE.MeshStandardMaterial({color: '#ffffff',})
+        // )
+        // testMesh.castShadow  = true
 
-        this.scene.add( testMesh )
-                    this.Enviromet = new Environmet()
+        // this.scene.add( testMesh )
         
         this.resorces.on( 'ready', ()=>{ 
-            this.Enviromet = new Environmet()
-            
+            this.enviromet = new Environmet()
+            this.crystal = new Crystal()
         })
 
     }

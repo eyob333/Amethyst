@@ -7,6 +7,11 @@ import Camera from './Camera'
 import Renderer from './Renderer'
 import Debug from './Utils/Debug'
 import World from './World/World'
+import Stats from 'stats-js'
+
+const stats = new Stats()
+stats.showPanel(0)
+document.body.appendChild(stats.dom)
 
 let instance = null;
 
@@ -46,9 +51,11 @@ export default class App{
     }
 
     update(){
+        stats.begin()
         this.camera.update()
         this.renderer.update()        
         this.world.update()
+        stats.end()
     }
 
      destroy(){

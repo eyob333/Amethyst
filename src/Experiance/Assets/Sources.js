@@ -1,12 +1,12 @@
 export default [
-    // {
-    //     name: 'Ship',
-    //     type: 'gltfModel',
-    //     path: '/models/1k-nomad.glb',
-    // },
-    // {
-    //     name: 'Nomad',
-    //     type: 'gltfModel',
-    //     path: '/models/1k-winter.glb',
-    // },
+    {
+        name: 'cryistal',
+        type: 'gltfModel',
+        path: '/models/stylized_crystal.glb',
+    },
+    {
+        name: 'enviroment',
+        type: 'rgbeTexture',
+        path: '/textures/urban_alley_01_1k.hdr',
+    },
 ]
