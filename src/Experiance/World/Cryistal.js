@@ -1,6 +1,8 @@
 import App from "../App"
 import * as THREE from 'three'
 import customShaderMaterial from 'three-custom-shader-material/vanilla'
+import glasVertex from '../Shaders/Glass/vertex.glsl'
+import glassFragment from '../Shaders/Glass/fragment.glsl'
 
 export default class Crystal{
     constructor(){
@@ -27,21 +29,24 @@ export default class Crystal{
         })
         this.scene.add(this.crystal)
     }
-    setUniform(){
-        this.uniforms = {}
-    }
 
     setMaterial(){
         this.material = new customShaderMaterial({
             baseMaterial: THREE.MeshPhysicalMaterial,
-            metalness: 0,
-            roughness: .5,
-            color: 0xffffff,
-            transmission: 0,
-            ior: 1.5,
-            thickness: 1.5,
+            vertexShader: glasVertex ,
+            fragmentShader: glassFragment,
+            uniforms: {
+                uAlpha: new THREE.Uniform(0.8443),
+            },
+            metalness: 0.66,
+            roughness: 0.1,
+            // transmission: 0,
+            // ior: 1.5,
+            // thickness: 1.5,
+            color: "#cdcdcdf7",
             transparent: true,
-            wireframe: false
+            wireframe: false,
+            // depthWrite: true
         })
     }
 
@@ -52,5 +57,7 @@ export default class Crystal{
         this.cryistalMaterial.add( this.material, 'transmission').min(0).max(1).step(0.001).name('transmission')
         this.cryistalMaterial.add( this.material, 'ior').min(0).max(1).step(0.001).name('ior')
         this.cryistalMaterial.add( this.material, 'thickness').min(0).max(10).step(0.001).name('thickness')
+        this.cryistalMaterial.add(this.material, 'depthWrite')
+        this.cryistalMaterial.add( this.material.uniforms.uAlpha, 'value').min(0).max(1).step(0.0001).name('uAlpha');
     }
 }
