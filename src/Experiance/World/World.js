@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import App from "../App"
 import Environmet from './Environment'
 import Crystal from './Cryistal'
+import Cube from './Cube'
 
 export default class World{
 
@@ -22,6 +23,7 @@ export default class World{
         this.resorces.on( 'ready', ()=>{ 
             this.enviromet = new Environmet()
             this.crystal = new Crystal()
+            this.Cube = new Cube();
         })
 
     }

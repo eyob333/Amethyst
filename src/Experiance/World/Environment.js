@@ -12,7 +12,7 @@ export default class Environmet{
 
         this.setSunLight()
         this.setAmbientLight()
-        this.setEnvMap()
+        // this.setEnvMap()
 
         if( this.debug.active){
             this.debugFolder = this.debug.ui.addFolder('Enviromet')

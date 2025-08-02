@@ -43,7 +43,7 @@ export default class Crystal{
             // transmission: 0,
             // ior: 1.5,
             // thickness: 1.5,
-            color: "#cdcdcdf7",
+            color: 0xcdcdcdf7,
             transparent: true,
             wireframe: false,
             // depthWrite: true

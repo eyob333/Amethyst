@@ -21,7 +21,8 @@ export default class Renderer{
 
         // this.instance.toneMapping = THREE.CineonToneMapping
         // this.instance.toneMappingExposure = 1.75
-        this.instance.setClearColor('#211d20')
+        this.instance.setClearColor(0x712987ff)
+        this.instance.setClearAlpha(.2)
         this.instance.setSize( this.sizes.width,  this.sizes.height )
         this.instance.setPixelRatio( this.sizes.pixelRatio )
 
