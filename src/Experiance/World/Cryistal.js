@@ -52,6 +52,7 @@ export default class Crystal{
 
     setDebug(){
         this.cryistalMaterial = this.debug.ui.addFolder("Cryistal")
+            .close()
         this.cryistalMaterial.add( this.material, 'metalness').min(0).max(1).step(0.001).name('metalness')
         this.cryistalMaterial.add( this.material, 'roughness').min(0).max(1).step(0.001).name('roughness')
         this.cryistalMaterial.add( this.material, 'transmission').min(0).max(1).step(0.001).name('transmission')
