@@ -10,7 +10,14 @@ export default class Cube{
         this.scene = this.app.scene;
         this.resources = this.app.resources;
 
+        this.debug = this.app.debug
+
         this.setInstance();
+
+
+        if (this.debug.active){
+            this.setDebug();
+        }
 
         
     }
@@ -22,7 +29,11 @@ export default class Cube{
 
         this.material = new THREE.ShaderMaterial({
             vertexShader: amethVertext,
-            fragmentShader: amethFragment
+            fragmentShader: amethFragment,
+            uniforms: {
+                uTime: new THREE.Uniform(0),
+                uSpeed: new THREE.Uniform(1),
+            }
         });
 
 
@@ -34,7 +45,12 @@ export default class Cube{
         this.scene.add(this.instance);
     }
     setDebug(){
+        let debug = this.debug.ui.addFolder('cube');
+        debug.add(this.material.uniforms.uSpeed, 'value').min(0).max(3).step(.00001).name('uSpeed');
     }
 
+    update(){
+        this.material.uniforms.uTime.value = this.app.time.elapsed;
+    }
 
 }

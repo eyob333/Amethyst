@@ -29,5 +29,9 @@ export default class World{
     }
 
     update(){
+        if(this.Cube){
+            this.Cube.update()
+        }
+        
     }
 }
